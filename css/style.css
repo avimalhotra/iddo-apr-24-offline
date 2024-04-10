@@ -7,9 +7,30 @@ label{ display: inline-block;}
 :disabled{ cursor: not-allowed;}
 
 
+@font-face {
+    font-family: proxima;
+    src: url(../fonts/proximanova-regular.woff2);
+    font-weight: 400;
+    font-display: swap;
+}
+@font-face {
+    font-family: proxima;
+    src: url(../fonts/proximanova-bold.woff2);
+    font-weight: 700;
+    font-display: swap;
+}
+@font-face {
+    font-family: proxima;
+    src: url(../fonts/Proxima-Nova-Thin.woff2);
+    font-weight: 100;
+    font-display: swap;
+}
+
+
 html{
     font-size: 15px;
-    --ff: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --ff: proxima, sans-serif;
+    --red:#ca3c3c;
 }
 
 body{
@@ -32,8 +53,26 @@ body{
 .col-10{ flex-basis: 83.33%; max-width: 83.33%;}
 .col-11{ flex-basis: 91.66%; max-width: 91.66%;}
 .col-12{ flex-basis: 100%; max-width: 100%;}
+.flex{ display: flex;}
+.justify-space-between{ justify-content: space-between;}
+.align-items{ align-items: center;}
+
 
 /* layout */
+header{ background: #000; color: #fff;}
+header h1{ font-size: 30px;}
+header a{ color: inherit; display: inline-block; line-height: 80px;}
+.collapse{ height: 100%;}
+.h100{ height: 100%;}
+nav{ margin-left: -20px;}
+nav li{ margin: 0 5px;}
+nav a{ padding: 0 15px;}
+.btn{ background: none; border: 2px solid; color: var(--red); width: 90px; height: 35px; border-radius:10px; font: 16px var(--ff) ;}
+
+.banner{ background: #666; color: #fff; padding: 300px 0;}
+.banner button{ background: none; border: none; color: inherit; font-size: 10rem; margin-right: 40px;}
+.banner p{ font: 100 4rem var(--ff);}
+.banner a{ color: var(--red);}
 
 
 
@@ -47,13 +86,16 @@ body{
     .col-t-4{ flex-basis: 33.33%; max-width: 33.33%;}
     .col-t-6{ flex-basis: 50%; max-width: 50%;}
     .col-t-12{ flex-basis: 100%; max-width: 100%;}
+    .banner p{ font-size: 2.5rem;}
 }
 @media screen and (max-width:767px){
     html{ font-size: 13px;}
+    .col-m-6{ flex-basis: 50%; max-width: 50%;}
+    .collapse{ display: none;}
 }
 @media screen and (max-width:460px){
-    body{ background: aqua;}
     .col-p-4{ flex-basis: 33.33%; max-width: 33.33%;}
     .col-p-6{ flex-basis: 50%; max-width: 50%;}
     .col-p-12{ flex-basis: 100%; max-width: 100%;}
+    .banner .flex{ flex-flow: column wrap; }
 }
