@@ -3,7 +3,7 @@ a{ text-decoration: none;}
 canvas,img,iframe,video{ vertical-align: bottom;}
 ul{ list-style: none; padding: 0;}
 button{ cursor: pointer; padding: 0;}
-label{ display: inline-block;}
+label{ display: block;}
 :disabled{ cursor: not-allowed;}
 
 
@@ -55,6 +55,7 @@ body{
 .col-10{ flex-basis: 83.33%; max-width: 83.33%;}
 .col-11{ flex-basis: 91.66%; max-width: 91.66%;}
 .col-12{ flex-basis: 100%; max-width: 100%;}
+.col-auto{ flex-basis: 20%; max-width: 20%;}
 .flex{ display: flex;}
 .justify-space-between{ justify-content: space-between;}
 .justify-center{ justify-content: center;}
@@ -142,7 +143,36 @@ canvas{ background: #ddd; margin-top: 50px; max-width: 100%;}
 .accordion li.active a{ color: var(--red); }
 .accordion li.active p{ display: block; }
 .accordion a::after{ content: '+'; float: right;}
-.accordion li.active a::after{ content: '-'; }
+.accordion li.active a::after{ content: '-';}
+
+
+.wrap-10{ background: var(--red); color: #fff; padding: 23px 0 22px;}
+.wrap-10 input{ height: 35px; background: none; border: none; width: 370px; font: 100 36px var(--ff); color: #fff;}
+.wrap-10 input::placeholder{ color: #fff;}
+.wrap-10 .btn{ background: #fff; }
+
+
+.wrap-11{ background: #7f7f7f; padding: 28px 0 0 0;}
+.box{ background: #a6a6a6; height: 95px; display: grid; place-items: center; margin-bottom: 27px; }
+.box img{ max-width: 100%; height: auto;}
+
+
+.wrap-12{ background: #ebebeb; color: #363636; padding: 100px 0;}
+.wrap-12 address{ line-height: 30px; color: #898989; }
+.social-sm{ font-size: 16.22px; }
+.social-sm a{ display: inline-block; color: var(--red); margin: 20px 20px 20px 0; }
+.wrap-12 label{ border: 2px solid; padding: 17px; margin: 1rem 0;}
+.wrap-12 button{ margin: 1rem 0; width: 100%; height: 80px; border: none; background: #fff; color: var(--red); border-radius: 10px; font-size: 16px;}
+.wrap-12 button span.fa{ font-size: 36px; vertical-align: middle;} 
+.wrap-12 :is(input, textarea){ border: none; background: none; }
+.wrap-12 :is(input, textarea):focus{ outline: none; }
+.wrap-12 label:focus-within{ border-color: var(--red);}
+.wrap-12 textarea{ resize: none; vertical-align: top; height: 42px;}
+
+
+
+.wrap-13{ text-align: center; padding: 50px 0; background: #252525; color: #fff;}
+.wrap-13 a{ color: var(--red); }
 
 /* responsive */
 @media screen and (max-width:1220px){
@@ -174,4 +204,6 @@ canvas{ background: #ddd; margin-top: 50px; max-width: 100%;}
     .banner .flex{ flex-flow: column wrap; }
     .review blockquote q{ font-size: 24px; line-height: 30px;}
     .wrap-9 canvas{ margin-top: 2rem;}
+    .wrap-10 input{ width: 230px; font-size: 24px;}
+    .col-auto{ flex-basis: 50%; max-width: 100%;}
 }
