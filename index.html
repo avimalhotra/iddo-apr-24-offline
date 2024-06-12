@@ -15,6 +15,7 @@
                 <h1><a href="">IDDO</a></h1>
             </div>
             <div class="col-10 col-m-6">
+                <div aria-label="Menu" class="btn menu"><span></span><span></span><span></span></div>
                 <div class="collapse">
                     <div class="flex justify-space-between align-items h100">
                         <nav>
@@ -26,7 +27,7 @@
                                 <li><a href="#contact">Contact</a></li>
                             </ul>
                         </nav>
-                        <button class="btn">Sign Up</button>
+                        <button class="btn signup">Sign Up</button>
                     </div>
                 </div>
             </div>
@@ -35,6 +36,7 @@
 </header>
 <div class="banner" role="banner">
     <div class="container">
+        <video src="img/techaltum.mp4" width="1170" height="653"></video>
         <div class="flex align-items">
             <div><button><span class="fa fa-play-circle-o"></span></button></div>
             <div>
@@ -114,56 +116,56 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-4 col-t-6 col-p-12">
+            <div class="col-4 col-t-6 col-p-12 all website">
                 <div class="work">
                     <img src="img/work1.webp" alt="work 1" width="370" height="370" loading="lazy">
                     <div class="caption">
-                        <h3>PROJECT NAME</h3>
+                        <h3>PROJECT NAME 1</h3>
                         <p>DESIGNED BY | Author</p>
                     </div>
                 </div>
             </div>
-            <div class="col-4 col-t-6 col-p-12">
+            <div class="col-4 col-t-6 col-p-12 all website">
                 <div class="work">
                     <img src="img/work1.webp" alt="work 1" width="370" height="370" loading="lazy">
                     <div class="caption">
-                        <h3>PROJECT NAME</h3>
+                        <h3>PROJECT NAME 2</h3>
                         <p>DESIGNED BY | Author</p>
                     </div>
                 </div>
             </div>
-            <div class="col-4 col-t-6 col-p-12">
+            <div class="col-4 col-t-6 col-p-12 all website">
                 <div class="work">
                     <img src="img/work1.webp" alt="work 1" width="370" height="370" loading="lazy">
                     <div class="caption">
-                        <h3>PROJECT NAME</h3>
+                        <h3>PROJECT NAME 3</h3>
                         <p>DESIGNED BY | Author</p>
                     </div>
                 </div>
             </div>
-            <div class="col-4 col-t-6 col-p-12">
+            <div class="col-4 col-t-6 col-p-12 all branding">
                 <div class="work">
                     <img src="img/work1.webp" alt="work 1" width="370" height="370" loading="lazy">
                     <div class="caption">
-                        <h3>PROJECT NAME</h3>
+                        <h3>PROJECT NAME 4</h3>
                         <p>DESIGNED BY | Author</p>
                     </div>
                 </div>
             </div>
-            <div class="col-4 col-t-6 col-p-12">
+            <div class="col-4 col-t-6 col-p-12 all branding">
                 <div class="work">
                     <img src="img/work1.webp" alt="work 1" width="370" height="370" loading="lazy">
                     <div class="caption">
-                        <h3>PROJECT NAME</h3>
+                        <h3>PROJECT NAME 5</h3>
                         <p>DESIGNED BY | Author</p>
                     </div>
                 </div>
             </div>
-            <div class="col-4 col-t-6 col-p-12">
+            <div class="col-4 col-t-6 col-p-12 all branding">
                 <div class="work">
                     <img src="img/work1.webp" alt="work 1" width="370" height="370" loading="lazy">
                     <div class="caption">
-                        <h3>PROJECT NAME</h3>
+                        <h3>PROJECT NAME 6</h3>
                         <p>DESIGNED BY | Author</p>
                     </div>
                 </div>
@@ -321,8 +323,8 @@
             <div class="col-4 col-t-12">
                 <div class="accordion">
                     <ul>
-                        <li class="active">
-                            <a href=""><span class="fa fa-rocket"></span> Lorem ipsum dolor sit.</a>
+                        <li>
+                            <a class="active" href=""><span class="fa fa-rocket"></span> Lorem ipsum dolor sit.</a>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id fugit rerum tempore</p>
                         </li>
                         <li>
@@ -414,5 +416,62 @@
         <a href="#home"><span class="fa fa-chevron-up"></span></a>
     </div>
 </footer>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+$(function(){
+    $(".wrap-5 .btn").click(function(){
+        
+        $(".wrap-5 .btn").removeClass("active");
+        $(this).addClass("active");
+
+        if( $(this).text()=="All" ){
+            $(".wrap-5 .all").fadeIn();
+        }
+        else if( $(this).text()=="Website" ){
+            $(".wrap-5 .all").fadeOut(0);
+            $(".wrap-5 .website").fadeIn();
+        }
+        else if( $(this).text()=="Branding" ){
+            $(".wrap-5 .all").fadeOut(0);
+            $(".wrap-5 .branding").fadeIn();
+        }
+    });
+
+    $(".accordion a").click(function(e){
+        e.preventDefault();
+        if( $(this).hasClass("active")==false ){
+            $(".accordion a").removeClass("active"); 
+            $(this).addClass("active"); 
+            $(".accordion p").slideUp();
+            $(this).next("p").slideDown();
+        }   
+        // else{
+        //     $(this).removeClass("active");
+        //     $(this).next("p").slideUp();
+        // }
+    });
+
+    $(".menu").click(function(){
+        $(this).toggleClass("active");
+        $(".collapse").slideToggle();
+    });
+
+    if( screen.width<768 ){
+        $(".collapse a").click(function(){
+            $(".menu").removeClass("active");
+            $(".collapse").slideUp();
+        })
+    }
+
+    $(".banner button,.banner a").click(function(e){
+        e.preventDefault();
+        
+        $(".banner video").css({opacity:1});
+        $(".banner .flex").fadeOut();
+        $(".banner video").trigger("play");
+        //document.querySelector(".banner video").play();
+    })
+})
+</script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 *,::before,::after{margin: 0; box-sizing: border-box;}
 a{ text-decoration: none;}
-canvas,img,iframe,video{ vertical-align: bottom;}
+canvas,img,video{ vertical-align: bottom;}
 ul{ list-style: none; padding: 0;}
 button{ cursor: pointer; padding: 0;}
 label{ display: block;}
@@ -72,11 +72,20 @@ nav{ margin-left: -20px;}
 nav li{ margin: 0 5px;}
 nav a{ padding: 0 15px;}
 .btn{ background: none; border: 2px solid; color: var(--red); width: 90px; height: 35px; border-radius:10px; font: 16px var(--ff) ;}
+.menu{ display: none;}
+.menu span{ display: block; height: 2px; background: var(--red); margin: 6px 12px; transform-origin: right center; transition: 400ms;}
+.menu.active span:nth-child(1){ transform: rotate(-15deg); }
+.menu.active span:nth-child(2){ opacity: 0; }
+.menu.active span:nth-child(3){ transform: rotate(15deg);}
 
-.banner{ background: #666; color: #fff; padding: 300px 0;}
+
+.banner{ background: #666; color: #fff; padding: 1rem 0;}
+.banner .container{  position: relative;}
 .banner button{ background: none; border: none; color: inherit; font-size: 10rem; margin-right: 40px;}
 .banner p{ font: 100 4rem var(--ff);}
 .banner a{ color: var(--red);}
+.banner video{ max-width: 100%; height: auto; opacity: 0;}
+.banner .flex{ position: absolute; inset: 0 1rem;}
 
 
 h2{ font-size: 72px; line-height: 60px; border-bottom: 10px solid; margin-bottom: 2rem; }
@@ -140,10 +149,10 @@ canvas{ background: #ddd; margin-top: 50px; max-width: 100%;}
 .accordion a{ display: block; color: inherit; border: 1px solid #ebebeb; padding: 11px 19px; border-radius: 10px; }
 .accordion p{ display: none; font-size: 14px; color: #363636; font-weight: 100; line-height: 22px; margin: 20px;}
 .accordion a span.fa{ margin-right: 18px;}
-.accordion li.active a{ color: var(--red); }
-.accordion li.active p{ display: block; }
+.accordion li a.active{ color: var(--red); }
+.accordion li:first-child p{ display: block; }
 .accordion a::after{ content: '+'; float: right;}
-.accordion li.active a::after{ content: '-';}
+.accordion li a.active::after{ content: '—';}
 
 
 .wrap-10{ background: var(--red); color: #fff; padding: 23px 0 22px;}
@@ -194,16 +203,24 @@ canvas{ background: #ddd; margin-top: 50px; max-width: 100%;}
 @media screen and (max-width:767px){
     html{ font-size: 13px;}
     .col-m-6{ flex-basis: 50%; max-width: 50%;}
-    .collapse{ display: none;}
     .wrap-5 .btn{ margin-right: 6px;}
+    .menu{ display: inline-block; position: absolute; right: 1rem; top: 20px;}
+    .collapse{ display: none; height: auto; position: absolute; left: 0; right: 0; top: 80px; background: #000; padding-bottom: 1rem;}
+    .collapse div.flex{ flex-direction: column;}
+    .collapse div.flex .btn{ flex-shrink: 0;}
+    .collapse nav{ width: 100%; text-align: right;}
+    .collapse nav ul{ flex-flow: column wrap; }
+    .collapse nav a{ display: block; line-height: 40px;}
 }
 @media screen and (max-width:460px){
     .col-p-4{ flex-basis: 33.33%; max-width: 33.33%;}
     .col-p-6{ flex-basis: 50%; max-width: 50%;}
     .col-p-12{ flex-basis: 100%; max-width: 100%;}
-    .banner .flex{ flex-flow: column wrap; }
+    .banner .flex{ flex-direction: column; }
     .review blockquote q{ font-size: 24px; line-height: 30px;}
     .wrap-9 canvas{ margin-top: 2rem;}
     .wrap-10 input{ width: 230px; font-size: 24px;}
     .col-auto{ flex-basis: 50%; max-width: 100%;}
+    .banner button{ font-size: 6rem;}
+    .banner p{ font-size: 24px;}
 }
